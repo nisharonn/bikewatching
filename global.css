@@ -1,0 +1,73 @@
+
+
+body {
+    font: 100%/1.5 system-ui, sans-serif;
+    display: flex;
+    flex-flow: column;
+    max-width: 80em;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 1em;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;  
+    align-items: baseline;
+    width: 100%; 
+}
+
+.time-filter {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end; 
+}
+
+.time-filter em {
+    color: #888;
+}
+
+#time-slider {
+    width: 100%; 
+}
+
+.legend div::before {
+    content: "";
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-family: sans-serif;
+}
+
+.legend-label {
+    font-weight: bold;
+    color: #888;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+.legend-item .swatch {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--color);
+}
+
+.legend-item {
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+    --color: color-mix(
+        in oklch,
+        var(--color-departures) calc(100% * var(--departure-ratio)),
+        var(--color-arrivals)
+    );
+}
